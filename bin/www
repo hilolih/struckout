@@ -98,4 +98,7 @@ io.on('connection', function (socket) {
         console.log('disconnected.');
         socket.emit('status', {code: 'red'});
     });
+    socket.on('status', function(data){
+        io.emit('status', data);
+    });
 });
