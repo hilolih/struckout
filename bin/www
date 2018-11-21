@@ -91,3 +91,11 @@ function onListening() {
 
 
 var io = require('socket.io')(server);
+io.on('connection', function (socket) {
+    socket.emit('status', {code: 'green'});
+    console.log('connected.');
+    socket.on('disconnect', function(){
+        console.log('disconnected.');
+        socket.emit('status', {code: 'red'});
+    });
+});
