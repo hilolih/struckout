@@ -7,6 +7,7 @@ function jsonCheck(json){
     if ( typeof(json.no) === 'undefined' ) {
         return false;
     }
+    // パネルは１から９まで
     no = parseInt(json.no);
     if ( no < 1 || no > 9 ) {
         return false;

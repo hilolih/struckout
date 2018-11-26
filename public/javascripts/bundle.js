@@ -3965,11 +3965,18 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var block1 = (0, _jquery2.default)('#block1');
-
-block1.click(function () {
-    block1.animate({ width: '600pt', height: '300pt' }, 2000);
-    block1.animate({ width: '100pt', height: '100pt' }, 2000);
+(0, _jquery2.default)('.block').click(function () {
+    console.log('zoom');
+    (0, _jquery2.default)(this).animate({ width: '105pt', height: '105pt' }, 50);
+    console.log((0, _jquery2.default)(this).css('background-color'));
+    if ((0, _jquery2.default)(this).hasClass('hit')) {
+        (0, _jquery2.default)(this).css('background-color', 'brown');
+        (0, _jquery2.default)(this).removeClass('hit');
+    } else {
+        (0, _jquery2.default)(this).css('background-color', 'blue');
+        (0, _jquery2.default)(this).addClass('hit');
+    }
+    (0, _jquery2.default)(this).animate({ width: '100pt', height: '100pt' }, 500);
 });
 
 var socket = (0, _socket2.default)('http://10.255.1.146:8000');

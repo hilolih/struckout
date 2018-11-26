@@ -1,11 +1,19 @@
 'use strict';
 import $ from 'jquery';
-const block1 = $('#block1');
 
-block1.click(() => {
-    block1.animate({width: '600pt', height: '300pt'}, 2000);
-    block1.animate({width: '100pt', height: '100pt'}, 2000);
-});
+$('.block').click(function(){
+    console.log('zoom');
+    $(this).animate({width: '105pt', height: '105pt'}, 50);
+    console.log($(this).css('background-color'));
+    if ($(this).hasClass('hit') ){
+        $(this).css('background-color', 'brown')
+        $(this).removeClass('hit')
+    } else {
+        $(this).css('background-color', 'blue')
+        $(this).addClass('hit')
+    }
+    $(this).animate({width: '100pt', height: '100pt'}, 500);
+})
 
 import io from 'socket.io-client';
 const socket = io('http://10.255.1.146:8000');
