@@ -5,7 +5,11 @@ var socket = io('http://10.255.1.146:8000');
 
 function jsonCheck(json){
     if ( typeof(json.no) === 'undefined' ) {
-        return false
+        return false;
+    }
+    no = parseInt(json.no);
+    if ( no < 1 || no > 9 ) {
+        return false;
     }
     if ( typeof(json.color) === 'undefined' ) {
         return false
