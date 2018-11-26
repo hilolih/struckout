@@ -3965,6 +3965,7 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// パネルの色をトグル
 (0, _jquery2.default)('.block').click(function () {
     console.log('zoom');
     (0, _jquery2.default)(this).animate({ width: '105pt', height: '105pt' }, 50);
@@ -3988,6 +3989,11 @@ socket.on('status', function (data) {
         console.log("hello");
         status.text(blk);
         (0, _jquery2.default)(blk).css("background-color", data.color);
+        if ((0, _jquery2.default)(blk).hasClass('hit')) {
+            (0, _jquery2.default)(blk).removeClass('hit');
+        } else {
+            (0, _jquery2.default)(blk).addClass('hit');
+        }
         //status.text(data.code.toString());
     }
 });

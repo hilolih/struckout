@@ -1,6 +1,7 @@
 'use strict';
 import $ from 'jquery';
 
+// パネルの色をトグル
 $('.block').click(function(){
     console.log('zoom');
     $(this).animate({width: '105pt', height: '105pt'}, 50);
@@ -25,6 +26,11 @@ socket.on('status', (data) => {
         console.log("hello");
         status.text(blk);
         $(blk).css("background-color", data.color);
+        if ($(blk).hasClass('hit') ){
+            $(blk).removeClass('hit')
+        } else {
+            $(blk).addClass('hit')
+        }
         //status.text(data.code.toString());
     }
 });
