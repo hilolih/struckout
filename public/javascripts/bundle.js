@@ -3994,6 +3994,14 @@ socket.on('status', function (data) {
         } else {
             (0, _jquery2.default)(blk).addClass('hit');
         }
+        // 当てたパネルのIDを収集
+        var hitPanels = [];
+        (0, _jquery2.default)('.block.hit').each(function () {
+            hitPanels.push((0, _jquery2.default)(this).attr('id').slice(-1));
+        });
+        //
+        var jsondata = { 'hitPanels': hitPanels };
+        console.log(jsondata);
         //status.text(data.code.toString());
     }
 });

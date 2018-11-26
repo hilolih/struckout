@@ -31,6 +31,14 @@ socket.on('status', (data) => {
         } else {
             $(blk).addClass('hit')
         }
+        // 当てたパネルのIDを収集
+        var hitPanels = []
+        $('.block.hit').each(function(){
+            hitPanels.push($(this).attr('id').slice(-1))
+        })
+        //
+        var jsondata = { 'hitPanels': hitPanels }
+        console.log(jsondata)
         //status.text(data.code.toString());
     }
 });
