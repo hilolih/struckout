@@ -3968,7 +3968,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var block1 = (0, _jquery2.default)('#block1');
 
 block1.click(function () {
-    block1.animate({ width: '300pt', height: '300pt' }, 2000);
+    block1.animate({ width: '600pt', height: '300pt' }, 2000);
     block1.animate({ width: '100pt', height: '100pt' }, 2000);
 });
 
@@ -3976,7 +3976,13 @@ var socket = (0, _socket2.default)('http://10.255.1.146:8000');
 
 var status = (0, _jquery2.default)('#status');
 socket.on('status', function (data) {
-    status.text(data.code.toString());
+    if (typeof data.no !== 'undefined' && typeof data.color !== 'undefined') {
+        var blk = '#block' + data.no;
+        console.log("hello");
+        status.text(blk);
+        (0, _jquery2.default)(blk).css("background-color", data.color);
+        //status.text(data.code.toString());
+    }
 });
 
 /***/ }),
